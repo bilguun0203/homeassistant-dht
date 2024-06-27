@@ -188,7 +188,7 @@ class DHTClient:
 
     def update(self):
         """Get the latest data the DHT sensor."""
-        dht = self.sensor(self.pin)
+        dht = self.sensor(self.pin, use_pulseio=False)
         try:
             temperature, humidity = DHTClient.read_retry(dht)
         except RuntimeError as e:
